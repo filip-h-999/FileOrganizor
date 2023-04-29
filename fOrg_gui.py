@@ -3,6 +3,7 @@ import fOrganizor
 from tkinter import filedialog 
 
 def organizorGui():
+    global setPath
     customtkinter.set_appearance_mode("dark")
     customtkinter.set_default_color_theme("green")
 
@@ -27,6 +28,7 @@ def organizorGui():
         txt.insert(0, r"Path: C:\Users\Documents...")
 
     def setPath():
+        root.destroy()
         getPath = txt.get()
         correctPath = fOrganizor.organize(getPath)
         print(correctPath)
@@ -41,21 +43,42 @@ def organizorGui():
         #     txt._entry.config(foreground="white")
         #     print("organized")
         
-        #todo ask for permission
-     
     def searchFolder():
         selected_directory = filedialog.askdirectory()
         path.set(selected_directory)
         txt._entry.config(foreground="limegreen")
         
 
-    btn = customtkinter.CTkButton(master=frame, text="organize", command=setPath)
+    btn = customtkinter.CTkButton(master=frame, text="organize", command=permission_window)
     btn.place(x=125, y=120)
 
     btn2 = customtkinter.CTkButton(master=frame, text="📁", width=27, border_color='#565B5E', border_width=2, fg_color="#343638", command=searchFolder)
     btn2.place(x=305, y=63)
 
     win.mainloop()
+
+
+def permission_window():
+    global root
+    customtkinter.set_appearance_mode("dark")
+
+    root = customtkinter.CTk()
+    root.geometry('410x130+800+230')
+    root.title("Confirm")
+
+    frame2 = customtkinter.CTkFrame(master=root)
+    frame2.pack(pady=10, padx=10, fill="both", expand=True)
+
+    lab = customtkinter.CTkLabel(master=frame2, text="Are you sure you want to organize this Folder?", font=('Roboto', 17))
+    lab.pack(pady=12, padx=10)
+
+    btn = customtkinter.CTkButton(master=frame2, text="yes", command=setPath)
+    btn.place(x=35, y=65)
+
+    btn2 = customtkinter.CTkButton(master=frame2, text="cancle", command=root.destroy, fg_color="red")
+    btn2.place(x=220, y=65)
+
+    root.mainloop()
 
 
 organizorGui()
