@@ -45,7 +45,7 @@ def organize(path):
         correctPath = False
 
     for file in os.listdir():
-        if file.isdir(path): 
+        if os.path.isdir(file): 
             continue
         if is_audio(file):
             moveFile("audio")
@@ -74,4 +74,4 @@ def organize(path):
 
 if __name__ == "__main__":
     # print(sys.argv)
-    organize(sys.argv[1])
+    organize(r"C:\Users\filip\Downloads\test")
