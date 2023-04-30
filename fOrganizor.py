@@ -74,4 +74,4 @@ def organize(path):
 
 if __name__ == "__main__":
     # print(sys.argv)
-    organize(r"C:\Users\filip\Downloads\test")
+    organize(sys.argv[1])
