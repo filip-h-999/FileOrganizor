@@ -9,11 +9,11 @@ import sys
 def organize(path):
     correctPath = False
 
-    audio = [".mp3", ".wav", ".aac", ".flac", ".wma"]
+    audio = [".mp3", ".wav", ".aac", ".flac", ".wma", ".m4a"]
     video = [".mp4", ".avi", ".mov", ".wmv", ".mkv"]
-    image = [".jpg", ".png", ".gif", ".bmp", ".svg"]
-    documents = [".doc", ".docx", ".pdf", "odt"]
-    zipF =[".zip,", ".7zip"]
+    image = [".jpg", ".png", ".gif", ".bmp", ".svg", ".jpeg"]
+    documents = [".doc", ".docx", ".pdf", ".odt", ".xlsx", ".odp"]
+    zipF =[".zip", ".7zip"]
     pwp = [".ppt", ".pptx"]
     text = [".txt"]
     icon = [".ico"]
