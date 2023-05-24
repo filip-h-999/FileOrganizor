@@ -12,7 +12,7 @@ def organize(path):
     audio = [".mp3", ".wav", ".aac", ".flac", ".wma", ".m4a"]
     video = [".mp4", ".avi", ".mov", ".wmv", ".mkv"]
     image = [".jpg", ".png", ".gif", ".bmp", ".svg", ".jpeg"]
-    documents = [".doc", ".docx", ".pdf", ".odt", ".xlsx", ".odp"]
+    documents = [".doc", ".docx", ".docm", ".pdf", ".odt", ".xlsx", ".odp"]
     zipF =[".zip", ".7zip"]
     pwp = [".ppt", ".pptx"]
     text = [".txt"]
@@ -45,27 +45,30 @@ def organize(path):
         correctPath = False
 
     for file in os.listdir():
-        if os.path.isdir(file): 
+        if os.path.isdir(file):
             continue
-        if is_audio(file):
-            moveFile("audio")
-        elif is_video(file):
-            moveFile("video")
-        elif is_image(file):
-            moveFile("image")
-        elif is_documents(file):
-            moveFile("documents")
-        elif is_pwp(file):
-            moveFile("pwp")
-        elif is_txt(file):
-            moveFile("text")
-        elif is_zip(file):
-            moveFile("zipF")
-        elif is_icon(file):
-            moveFile("icon")
-        elif is_exe(file):
-            moveFile("exe")
-    
+        try:
+            if is_audio(file):
+                moveFile("audio")
+            elif is_video(file):
+                moveFile("video")
+            elif is_image(file):
+                moveFile("image")
+            elif is_documents(file):
+                moveFile("documents")
+            elif is_pwp(file):
+                moveFile("pwp")
+            elif is_txt(file):
+                moveFile("text")
+            elif is_zip(file):
+                moveFile("zipF")
+            elif is_icon(file):
+                moveFile("icon")
+            elif is_exe(file):
+                moveFile("exe")
+        except Exception as e:
+            print(f"An error occurred while processing {file}: {str(e)}")
+        
     return correctPath
     
         # if os.path.exists(r"C:\Users\filip\Downloads\test\audio") == False:
