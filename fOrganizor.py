@@ -13,7 +13,9 @@ def organize(path):
     video = [".mp4", ".avi", ".mov", ".wmv", ".mkv"]
     image = [".jpg", ".png", ".gif", ".bmp", ".svg", ".jpeg"]
     documents = [".doc", ".docx", ".docm", ".pdf", ".odt", ".xlsx", ".odp"]
+    printer = [".stl", ".gcode"]
     zipF =[".zip", ".7zip"]
+    web = [".html", ".webp" ".json"]
     pwp = [".ppt", ".pptx"]
     text = [".txt"]
     icon = [".ico"]
@@ -23,9 +25,11 @@ def organize(path):
     is_video = lambda file: os.path.splitext(file)[1] in video
     is_image = lambda file: os.path.splitext(file)[1] in image
     is_documents = lambda file: os.path.splitext(file)[1] in documents
+    is_printer = lambda file: os.path.splitext(file)[1] in printer
     is_pwp = lambda file: os.path.splitext(file)[1] in pwp
     is_txt = lambda file: os.path.splitext(file)[1] in text
     is_zip = lambda file: os.path.splitext(file)[1] in zipF
+    is_web = lambda file: os.path.splitext(file)[1] in web
     is_exe = lambda file: os.path.splitext(file)[1] in exe
     is_icon = lambda file: os.path.splitext(file)[1] in icon
 
@@ -56,12 +60,16 @@ def organize(path):
                 moveFile("image")
             elif is_documents(file):
                 moveFile("documents")
+            elif is_printer(file):
+                moveFile("printer")
             elif is_pwp(file):
                 moveFile("pwp")
             elif is_txt(file):
                 moveFile("text")
             elif is_zip(file):
                 moveFile("zipF")
+            elif is_web(file):
+                moveFile("web")
             elif is_icon(file):
                 moveFile("icon")
             elif is_exe(file):
